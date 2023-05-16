@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportExcelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(ExportExcelController::class)->group(function(){
+    Route::get('index', 'index');
+    Route::get('export/excel', 'export')->name('export.excel');
 });
